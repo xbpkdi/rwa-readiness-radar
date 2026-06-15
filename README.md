@@ -2,6 +2,8 @@
 
 **Research-assisted RWA readiness assessment** — structure evidence, score with caps, hash the report, publish a versioned proof on Avalanche.
 
+**Live demo:** [https://rwa-readiness-radar.vercel.app](https://rwa-readiness-radar.vercel.app)
+
 > Research-assisted draft. Manual review required.  
 > Not investment advice.
 
