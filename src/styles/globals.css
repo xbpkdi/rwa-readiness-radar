@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border-color);
+  --color-avax: var(--avax);
+  --color-azure: var(--azure);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-muted-fg: var(--muted-fg);
+}
+
+:root {
+  /* Base surfaces */
+  --background:       oklch(0.16 0.018 265);
+  --foreground:       oklch(0.96 0.005 250);
+  --surface:          oklch(0.19 0.02 265);
+  --surface-elevated: oklch(0.22 0.022 265);
+  --border-color:     oklch(1 0 0 / 8%);
+  --muted-fg:         oklch(0.68 0.02 260);
+
+  /* Brand accents */
+  --avax:    oklch(0.66 0.24 25);
+  --azure:   oklch(0.68 0.18 240);
+  --success: oklch(0.72 0.16 155);
+  --warning: oklch(0.78 0.15 80);
+  --danger:  oklch(0.65 0.24 25);
+
+  /* Gradients */
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.66 0.22 25 / 16%), transparent 60%),
+                   radial-gradient(ellipse at bottom right, oklch(0.65 0.18 250 / 14%), transparent 60%);
+  --gradient-avax: linear-gradient(135deg, oklch(0.66 0.24 25), oklch(0.55 0.22 15));
+  --gradient-azure: linear-gradient(135deg, oklch(0.68 0.18 240), oklch(0.55 0.18 260));
+  --gradient-mix: linear-gradient(135deg, oklch(0.66 0.24 25), oklch(0.55 0.18 260));
+
+  /* Shadows */
+  --shadow-glow-red:  0 0 40px -10px oklch(0.66 0.24 25 / 45%);
+  --shadow-glow-blue: 0 0 40px -10px oklch(0.68 0.18 240 / 45%);
+  --shadow-elevated:  0 24px 60px -20px oklch(0 0 0 / 60%);
+
+}
+
+@layer base {
+  *, *::before, *::after {
+    border-color: oklch(1 0 0 / 8%);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.66 0.22 25 / 10%), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.65 0.18 250 / 8%), transparent 60%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: oklch(0.66 0.24 25 / 30%);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--azure);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, oklch(1 0 0 / 3.5%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 3.5%) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .glass {
+    background: linear-gradient(180deg, oklch(1 0 0 / 4%), oklch(1 0 0 / 1%));
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid oklch(1 0 0 / 8%);
+  }
+
+  .glass-strong {
+    background: linear-gradient(180deg, oklch(1 0 0 / 6%), oklch(1 0 0 / 2%));
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid oklch(1 0 0 / 10%);
+  }
+
+  .text-gradient-mix {
+    background: var(--gradient-mix);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-headline-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-headline-gradient-1 {
+    background-image: linear-gradient(
+      90deg,
+      var(--avax) 0%,
+      color-mix(in oklch, var(--avax) 72%, var(--azure) 28%) 100%
+    );
+  }
+
+  .hero-headline-gradient-2 {
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--avax) 68%, var(--azure) 32%) 0%,
+      color-mix(in oklch, var(--avax) 48%, var(--azure) 52%) 100%
+    );
+  }
+
+  .hero-headline-gradient-3 {
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--avax) 44%, var(--azure) 56%) 0%,
+      color-mix(in oklch, var(--avax) 24%, var(--azure) 76%) 100%
+    );
+  }
+
+  .hero-headline-gradient-4 {
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--avax) 20%, var(--azure) 80%) 0%,
+      var(--azure) 100%
+    );
+  }
+
+  .text-gradient-avax {
+    background: var(--gradient-avax);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-azure {
+    background: var(--gradient-azure);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-red  { box-shadow: var(--shadow-glow-red); }
+  .glow-blue { box-shadow: var(--shadow-glow-blue); }
+
+  .shell-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .shell-container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .shell-header-surface {
+    background: linear-gradient(
+      180deg,
+      oklch(0.2 0.024 265 / 88%),
+      oklch(0.17 0.02 265 / 92%)
+    );
+    backdrop-filter: blur(16px) saturate(130%);
+    border: 1px solid oklch(1 0 0 / 10%);
+    border-radius: 0.875rem;
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 6%),
+      0 4px 24px -8px oklch(0 0 0 / 55%);
+  }
+
+  .shell-nav-rail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.25rem;
+    border-radius: 0.625rem;
+    background: oklch(0.14 0.018 265 / 65%);
+    border: 1px solid oklch(1 0 0 / 6%);
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 4%);
+  }
+
+  .shell-footer-surface {
+    background: linear-gradient(
+      180deg,
+      oklch(0.18 0.02 265 / 70%),
+      oklch(0.16 0.018 265 / 85%)
+    );
+    border: 1px solid oklch(1 0 0 / 8%);
+    border-radius: 0.75rem;
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 4%);
+  }
+
+  .shell-author-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foreground);
+    background: oklch(1 0 0 / 3%);
+    border: 1px solid oklch(1 0 0 / 8%);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .shell-author-link:hover {
+    background: oklch(1 0 0 / 6%);
+    border-color: oklch(1 0 0 / 14%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

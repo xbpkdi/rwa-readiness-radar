@@ -1,0 +1,10 @@
+{
+  "network": "avalanche-fuji",
+  "chainId": 43113,
+  "contractName": "RWAReadinessRegistry",
+  "address": "0x14Dd58b6ae69631Bb9caa88A094Ed1F07F6505C5",
+  "transactionHash": "0x058637ad00951991e9836211dafda760a506b6b3eb41f05277087b2515305f42",
+  "blockNumber": 56270955,
+  "deployedAt": "2026-06-14T19:35:37.909Z",
+  "deployer": "0xc2bbC763Fb7Cd6d6EFb37cafc0A4C59c52D6c04b"
+}

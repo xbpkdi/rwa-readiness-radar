@@ -1,0 +1,26 @@
+{
+  "name": "rwa-readiness-registry-contracts",
+  "version": "0.1.0",
+  "description": "Solidity contracts for the RWA Readiness Registry",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:gas": "REPORT_GAS=true hardhat test",
+    "coverage": "hardhat coverage",
+    "deploy:fuji": "hardhat run script/deploy.ts --network fuji",
+    "verify:fuji": "hardhat verify --network fuji",
+    "export-abi": "node script/export-abi.cjs",
+    "clean": "hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@types/node": "^20.19.43",
+    "hardhat": "^2.28.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
