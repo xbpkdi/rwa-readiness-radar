@@ -119,9 +119,9 @@ Detail: in-app `/methodology` or `src/config/scoring.ts`.
 ## Quick start
 
 ```bash
-bun install
+npm install
 cp .env.example .env.local
-bun run dev          # http://localhost:5173
+npm run dev          # http://localhost:5173
 ```
 
 **.env.local**
@@ -132,9 +132,9 @@ VITE_FUJI_RPC_URL=           # optional
 ```
 
 ```bash
-bun run build
-bun run test               # 188 frontend tests
-bun run lint
+npm run build
+npm test                   # 188 frontend tests
+npm run lint
 cd contracts && npm test   # 42 contract tests
 ```
 
